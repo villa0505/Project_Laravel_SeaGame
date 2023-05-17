@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\EventTeamController;
+use App\Http\Controllers\TeamController;
+use App\Http\Controllers\TicketController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +22,17 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+// users
+Route::resource('user', UserController::class);
+
+// team
+Route::resource('team', TeamController::class);
+
+// event
+Route::resource('event', EventController::class);
+
+// ticket
+Route::resource('tickets', TicketController::class);
+
+// EventTeam
+Route::resource('EventsTeams', EventTeamController::class);
